@@ -1,0 +1,40 @@
+<div class="button-row">
+  
+</div>
+<div class="example-container mat-elevation-z8">
+  <table mat-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- FirstName Column -->
+    <ng-container matColumnDef="firstname">
+      <th mat-header-cell *matHeaderCellDef> FirstName </th>
+      <td mat-cell *matCellDef="let element" class="firstname-col"> {{element.firstname}} </td>
+    </ng-container>
+
+    <!-- LastName Column -->
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef> LastName </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> <a mat-raised-button color="primary" [routerLink]="['/book-create']">Add New Row</a> </th>
+      <td mat-cell *matCellDef="let element" class="actionrow"> 
+        <button color="default" [routerLink]="['/book-edit', element._id]"><mat-icon>edit</mat-icon></button>
+        <button color="default" (click)="deleteBook(element._id)"><mat-icon>delete</mat-icon></button> 
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [style.background-color]="getBackgroundColor(row.firstname)"></tr>
+  </table>
+</div>

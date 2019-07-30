@@ -1,0 +1,18 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/books']"><mat-icon>list</mat-icon></a>
+</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title><h2>Detail</h2></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <dl>
+      <dt>FirstName:</dt>
+      <dd>{{book.firstname}}</dd>
+      <dt>LastName:</dt>
+      <dd>{{book.lastname}}</dd>
+      <dt>Email:</dt>
+      <dd>{{book.email}}</dd>
+    </dl>
+  </mat-card-content>
+</mat-card>

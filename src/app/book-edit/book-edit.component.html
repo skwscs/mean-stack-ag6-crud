@@ -1,0 +1,30 @@
+<!-- <div class="button-row">
+  <a mat-raised-button color="primary" (click)="bookDetails()"><mat-icon>show</mat-icon></a>
+</div> -->
+<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit(bookForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="FirstName" formControlName="firstname"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!bookForm.get('firstname').valid && bookForm.get('firstname').touched">Please enter FirstName</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="LastName" formControlName="lastname"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!bookForm.get('lastname').valid && bookForm.get('lastname').touched">Please enter LastName</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" formControlName="email"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!bookForm.get('email').valid && bookForm.get('email').touched">Please enter Email</span>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="button-row">
+    <button type="submit" [disabled]="!bookForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button>
+  </div>
+</form>
